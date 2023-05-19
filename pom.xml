@@ -8,6 +8,18 @@
   <artifactId>test-app</artifactId>
   <version>1.0-SNAPSHOT</version>
 
+  <profiles>
+    <profile>
+      <id>suite2</id>
+      <properties>
+        <testng.suite.file>${project.build.testOutputDirectory}/suite2.xml</testng.suite.file>
+      </properties>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
+  </profiles>
+
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
