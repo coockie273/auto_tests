@@ -1,6 +1,7 @@
-package edu.homework3;
+package edu.homework4;
 
-import edu.homework3.pages.homepage.Home;
+import edu.homework4.steps.Action;
+import edu.homework4.steps.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -14,7 +15,8 @@ import java.util.Properties;
 public class WebDriverSetup {
     protected static WebDriver driver;
 
-    protected static Home homePage;
+    protected static Action action;
+    protected static Assert assertion;
 
     @BeforeTest
     public static void setup() {
@@ -31,10 +33,14 @@ public class WebDriverSetup {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
-        homePage = new Home(driver, properties.getProperty("site.url"));
+        action = new Action(driver, properties);
+        assertion = new Assert(driver, properties);
+
+        // 1. Open test site by URL
+        action.navigateToHomePage();
 
         // 3. Perform login
-        homePage.performLogin(properties.getProperty("user.name"), properties.getProperty("user.password"));
+        action.performLogin();
     }
 
     @AfterTest

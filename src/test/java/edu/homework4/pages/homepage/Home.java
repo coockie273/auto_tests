@@ -1,8 +1,8 @@
-package edu.homework3.pages.homepage;
+package edu.homework4.pages.homepage;
 
-import edu.homework3.pages.homepage.elements.Header;
-import edu.homework3.pages.homepage.elements.IFrame;
-import edu.homework3.pages.homepage.elements.Menu;
+import edu.homework4.pages.homepage.elements.Header;
+import edu.homework4.pages.homepage.elements.IFrame;
+import edu.homework4.pages.homepage.elements.Menu;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,9 +10,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
+import java.util.Properties;
 
 public class Home {
-    private final WebDriver driver;
+    private static WebDriver driver;
+    private static Properties properties;
 
     private final Header headerSection;
     private final Menu leftSection;
@@ -41,22 +43,22 @@ public class Home {
     @FindBy(tagName = "iframe")
     private WebElement frame;
 
-    public Home(WebDriver driver, String url) {
-        this.driver = driver;
+    public Home(WebDriver driver, Properties properties) {
+        Home.driver = driver;
+        Home.properties = properties;
 
-        // 1. Open test site by URL
-        driver.navigate().to(url);
+        driver.navigate().to(properties.getProperty("site.url"));
 
-        PageFactory.initElements(this.driver, this);
+        PageFactory.initElements(driver, this);
 
         headerSection = new Header(driver);
         leftSection = new Menu(driver);
     }
 
-    public void performLogin(String loginName, String password) {
+    public void performLogin() {
         loginDropDownButton.click();
-        this.loginName.sendKeys(loginName);
-        this.password.sendKeys(password);
+        this.loginName.sendKeys(properties.getProperty("user.name"));
+        this.password.sendKeys(properties.getProperty("user.password"));
         loginButton.click();
     }
 

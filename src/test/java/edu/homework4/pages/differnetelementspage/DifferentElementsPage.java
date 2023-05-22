@@ -1,6 +1,6 @@
-package edu.homework3.pages.differnetelementspage;
+package edu.homework4.pages.differnetelementspage;
 
-import edu.homework3.pages.homepage.Home;
+import edu.homework4.pages.homepage.Home;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

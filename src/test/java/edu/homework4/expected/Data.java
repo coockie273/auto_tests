@@ -1,9 +1,9 @@
-package edu.homework3.expected;
+package edu.homework4.expected;
 
 import java.util.List;
 
 public class Data {
-    public static final String SITE_NAME = "Home Page";
+    public static final String HOME_PAGE_TITLE = "Home Page";
     public static final String LOGGED_USER_NAME = "ROMAN IOVLEV";
     public static final int HEADER_SECTION_ITEMS_SIZE = 4;
     public static final List<String> HEADER_SECTION_ITEMS_NAMES =
