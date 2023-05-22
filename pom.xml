@@ -17,9 +17,9 @@
 
     <profiles>
         <profile>
-            <id>suite-for-hw4</id>
+            <id>suit4</id>
             <properties>
-                <testng.suite.file>${project.build.testOutputDirectory}/suite-for-hw4.xml</testng.suite.file>
+                <testng.suite.file>${project.build.testOutputDirectory}/suite4.xml</testng.suite.file>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
